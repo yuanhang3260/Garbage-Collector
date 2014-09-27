@@ -97,7 +97,7 @@ void sweep(VM* vm)
     while (*object)
     {
         if (!(*object)->marked) {
-            /* This object wasn't reached, so remove it from the list and free it. */
+            /* This object wasn't reached, so remove and free it */
             Object* unreached = *object;
 
             *object = unreached->next;
@@ -106,8 +106,8 @@ void sweep(VM* vm)
             vm->numObjects--;
         }
         else {
-            /* This object was reached, so unmark it (for the next GC) and move on to
-               the next. */
+            /* This object was reached, so unmark it (for the next GC)
+             *  and move on to the next. */
             (*object)->marked = 0;
             object = &(*object)->next;
         }
