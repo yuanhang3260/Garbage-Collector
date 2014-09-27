@@ -118,6 +118,7 @@ void gc(VM* vm)
 {
     int numObjects = vm->numObjects;
 
+    /* mark and clean */
     markAll(vm);
     sweep(vm);
 
