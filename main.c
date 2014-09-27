@@ -76,6 +76,7 @@ void mark(Object* object) {
 
     object->marked = 1;
 
+    /** recursively mark objects referenced by another object */
     if (object->type == OBJ_PAIR) {
         mark(object->head);
         mark(object->tail);
@@ -103,7 +104,7 @@ void sweep(VM* vm)
 
             *object = unreached->next;
             free(unreached);
-
+            
             vm->numObjects--;
         }
         else {
