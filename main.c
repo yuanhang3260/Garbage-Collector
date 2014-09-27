@@ -104,7 +104,7 @@ void sweep(VM* vm)
 
             *object = unreached->next;
             free(unreached);
-            
+
             vm->numObjects--;
         }
         else {
