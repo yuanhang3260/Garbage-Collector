@@ -91,6 +91,7 @@ void markAll(VM* vm)
     }
 }
 
+/** sweep and clean unmarked objects */
 void sweep(VM* vm)
 {
     Object** object = &vm->firstObject;
