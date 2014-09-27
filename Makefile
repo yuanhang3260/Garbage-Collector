@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Werror
-OBJ = 
+OBJ = main.o
 
 all: a.out
 
